@@ -24,26 +24,27 @@ def game(incoming):
 
     print('\nLevel: ' + str(incoming))
 
-    print('All numbers add up to: ' + str(comp_added))
-    print('All numbers multiplied:' + str(comp_multi))
+    print('\nAll numbers add up to: ' + str(comp_added))
+    print('All numbers multiplied: ' + str(comp_multi))
     print('The 1st number is 1/2 of: ' + str(div_num1))
 
-    if mod_num2 == 1:
-        print('The 2nd number an even number')
+    if mod_num2 == 0:
+        print('The 2nd number even')
     else:
-        print('The 2nd number an even odd')
-    if mod_num3 == 1:
-        print('The 2nd number an even number')
+        print('The 2nd number odd')
+    if mod_num3 == 0:
+        print('The 3rd number even')
     else:
-        print('The 2nd number an even odd')
+        print('The 3rd number odd')
 
-    print('The 4th number is 1/3 of ' + str(div_num4))
+    print('The 4th number is 1/3 of: ' + str(div_num4))
 
     while True:
-        print('Lives:' + str(lives))
+        print('\nLives:' + str(lives) + '\n')
         in_list = input().split()
         guess_added = 0
         guess_multi = 1
+        lives -= 1
         if len(in_list) != 4:
             print('Format is wrong.')
         else:
@@ -56,10 +57,10 @@ def game(incoming):
             if guess_added == comp_added and guess_multi == comp_multi:
                 return True
             elif lives < 1:
-                return False
+                return False, '\nAnswer: ' + str(rannum1) + ' ' + str(rannum2) + ' ' + str(rannum3) + ' ' + str(rannum4)
             else:
                 print('Wrong, try again...')
-                lives -= 1
+
 
 
 '''main function'''
@@ -76,6 +77,7 @@ def main_func():
         level += 1
         os.system('cls')
 
+    print(gamestatus[1])
     print('Game Over. Your max level was ' + str(level))
 
 

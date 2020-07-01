@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     
 setuptools.setup(
     name="haxor-game",
-    version="0.0.7",
+    version="0.0.15",
     author="Angel Davila",
     author_email="",
     description="How good are you at haxoring?",
